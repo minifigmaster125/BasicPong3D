@@ -21,9 +21,9 @@ public class MovePaddle : MonoBehaviour
     void DetectInput() {
         float dir = Input.GetAxis("Vertical");
         if(dir < 0){
-            transform.position = new Vector3(transform.position.x, transform.position.y - speed, transform.position.z);
+            transform.position = new Vector3(transform.position.x, transform.position.y - (speed * Time.deltaTime), transform.position.z);
         } else if (dir > 0){
-            transform.position = new Vector3(transform.position.x, transform.position.y + speed, transform.position.z);
+            transform.position = new Vector3(transform.position.x, transform.position.y + (speed * Time.deltaTime), transform.position.z);
         }
     }
 }
