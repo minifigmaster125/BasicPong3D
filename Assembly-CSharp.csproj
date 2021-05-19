@@ -37,6 +37,7 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\MovePaddle.cs" />
+     <Compile Include="Assets\Scripts\Ball.cs" />
     <Reference Include="UnityEngine">
         <HintPath>/home/ssc/Programs/Unity/2020.3.1f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -638,6 +639,18 @@
     <ProjectReference Include="UnityEngine.UI.csproj">
       <Project>{78cb17ef-8e75-efa5-7207-cc88060dd497}</Project>
       <Name>UnityEngine.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.Sysroot.Linux_x86_64.csproj">
+      <Project>{a48d2eee-3dcf-3434-f9a6-5959a54129a9}</Project>
+      <Name>Unity.Sysroot.Linux_x86_64</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.Toolchain.Linux-x86_64.csproj">
+      <Project>{ff7d683b-69f9-65bf-623e-4d61963dbedf}</Project>
+      <Name>Unity.Toolchain.Linux-x86_64</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.SysrootPackage.Editor.csproj">
+      <Project>{ef68f3f0-0224-d5d0-66f0-74f5d77b4eff}</Project>
+      <Name>Unity.SysrootPackage.Editor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
