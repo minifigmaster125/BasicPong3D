@@ -8,6 +8,8 @@ public class Ball : MonoBehaviour
     private bool reset = true;
     private Rigidbody rb;
     private Vector3 initialPos;
+
+    public GameObject startText;
     // Start is called before the first frame update
     public GameObject mainCamera;
     void Start()
@@ -45,6 +47,7 @@ public class Ball : MonoBehaviour
             transform.position = initialPos;
             rb.velocity = Vector3.zero;
             reset = true;
+            startText.SetActive(true);
         }
     }
 
@@ -53,6 +56,11 @@ public class Ball : MonoBehaviour
             rb.AddForce(new Vector3(2,0,0));
             reset = false;
             triggerForce = false;
+            startText.SetActive(false);
         }
+    }
+
+    public bool isReset(){
+        return reset;
     }
 }
