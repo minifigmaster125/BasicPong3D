@@ -3156,3 +3156,43 @@ System memory in use after: 53.9 MB.
 Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1961.
 Total: 2.467958 ms (FindLiveObjects: 0.298712 ms CreateObjectMapping: 0.057312 ms MarkObjects: 2.051642 ms  DeleteObjects: 0.056617 ms)
 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000455 seconds.
+Callback registration failed. Increase kMaxCallback.
+
+Fatal Error! Callback registration failed. Increase kMaxCallback.
+
+Caught fatal signal - signo:6 code:-6 errno:0 addr:0x3e80000784f
+Obtained 30 stack frames.
+#0  0x007f9c0e9ff980 in funlockfile
+#1  0x007f9c0e63afb7 in gsignal
+#2  0x007f9c0e63c921 in abort
+#3  0x00557a2ca01396 in CrashDontLaunchBugReporter()
+#4  0x00557a2bd5f93f in EditorMonoConsole::LogToConsoleImplementation(CppLogEntry const&)
+#5  0x00557a2bd5ecbc in EditorMonoConsole::LogToConsoleImplementation(DebugStringToFileData const&)
+#6  0x00557a2bd605cb in LogToConsoleImplementation(DebugStringToFileData const&)
+#7  0x00557a2d9a5270 in DebugStringToFilePostprocessedStacktrace(DebugStringToFileData const&)
+#8  0x00557a2d9a5b35 in DebugStringToFile(DebugStringToFileData const&)
+#9  0x00557a29801760 in CallbackArrayBase<void (*)(AssemblyLoadFailure), void (*)(void const*, AssemblyLoadFailure)>::Register(void (*)(AssemblyLoadFailure), void (*)(void const*, AssemblyLoadFailure), void const*)
+#10 0x00557a2c680ce2 in LoadDomainAndUserAssemblies(bool)
+#11 0x00557a2c683665 in LoadUserAssemblies()
+#12 0x00557a2cb2898b in AssetImportWorkerClient::ReloadMonoDomain(AssetResolver&)
+#13 0x00557a2cb2fa83 in core::mutable_function<void ()>::DispatchT<IOService::PostHelper<AssetImportWorkerClient::HandleMessage(PrepareMessage const&)::$_1>(AssetImportWorkerClient::HandleMessage(PrepareMessage const&)::$_1&&, IOService::WrapCallableInFunctionTag)::{lambda()#1}>::Dispatch()
+#14 0x00557a2cbf9a56 in asio::detail::completion_handler<core::mutable_function<void ()> >::do_complete(asio::detail::task_io_service*, asio::detail::task_io_service_operation*, std::error_code const&, unsigned long)
+#15 0x00557a2cbf7390 in asio::detail::task_io_service::do_run_one(asio::detail::scoped_lock<asio::detail::posix_mutex>&, asio::detail::task_io_service_thread_info&, std::error_code const&)
+#16 0x00557a2cbf6f23 in asio::detail::task_io_service::run(std::error_code&)
+#17 0x00557a2cbf0aaa in asio::io_service::run()
+#18 0x00557a2cbf0a5b in IOService::Run(bool)
+#19 0x00557a2cb57585 in RunAssetImporterV2()
+#20 0x00557a2bed7cf3 in Application::InitializeProject()
+#21 0x00557a2ca12ea6 in InitializeUnity(void*)
+#22 0x007f9c0fb83e23 in g_source_get_time
+#23 0x007f9c0fb833a5 in g_main_context_dispatch
+#24 0x007f9c0fb83770 in g_main_context_dispatch
+#25 0x007f9c0fb83a82 in g_main_loop_run
+#26 0x007f9c10b8aa25 in gtk_main
+#27 0x00557a2ca1286e in main
+#28 0x007f9c0e61dbf7 in __libc_start_main
+#29 0x00557a2975c029 in _start

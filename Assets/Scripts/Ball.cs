@@ -8,6 +8,7 @@ public class Ball : MonoBehaviour
     private bool reset = true;
     private Rigidbody rb;
     private Vector3 initialPos;
+    private Quaternion initialRotation;
 
     public GameObject startText;
     // Start is called before the first frame update
@@ -16,6 +17,7 @@ public class Ball : MonoBehaviour
     {
        rb = GetComponent<Rigidbody>(); 
        initialPos = transform.position;
+       initialRotation = transform.rotation;
     }
     // Update is called once per frame
     void Update()
@@ -38,13 +40,20 @@ public class Ball : MonoBehaviour
             Vector3 newDirection = direction + new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f), 0);
 
             rb.velocity = newDirection.normalized * mag;
-            rb.AddForce(direction * 0.5f);
+            rb.AddForce(newDirection * 0.5f);
 
             mainCamera.GetComponent<CameraShake>().shakeDuration =  0.2f;
+            transform.LookAt(newDirection);
+            Debug.DrawRay(transform.position, newDirection, Color.green, 3f);
+            Debug.DrawRay(transform.position, transform.up, Color.magenta, 3f);
+            Debug.DrawRay(transform.position, transform.forward, Color.blue, 3f);
+            GetComponent<ParticleSystem>().Play();
         
         }
         if(col.gameObject.name == "Goal1" || col.gameObject.name == "Goal2"){
             transform.position = initialPos;
+            transform.rotation = initialRotation;
+            rb.angularVelocity = Vector3.zero;
             rb.velocity = Vector3.zero;
             reset = true;
             startText.SetActive(true);
