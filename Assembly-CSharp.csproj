@@ -39,6 +39,7 @@
      <Compile Include="Assets\Scripts\MovePaddle.cs" />
      <Compile Include="Assets\Scripts\Ball.cs" />
      <Compile Include="Assets\Scripts\CameraShake.cs" />
+     <Compile Include="Assets\Scripts\ButtonEvents.cs" />
     <Reference Include="UnityEngine">
         <HintPath>/home/ssc/Programs/Unity/2020.3.1f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
